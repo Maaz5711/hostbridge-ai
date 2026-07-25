@@ -4,13 +4,16 @@ import { useParams } from "next/navigation";
 import { useState } from "react";
 
 type Result = {
-  route: string;
+  classification?: string;
+  route?: string;
   intent: string;
   priority: string;
   sentiment: string;
   confidence: number;
-  response: string;
+  reply?: string;
+  response?: string;
   propertyFound: boolean;
+  conversationId?: string;
   error?: {
     type: string;
     message: string;
@@ -38,15 +41,17 @@ export default function SimulatorPage() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-  message,
-  propertyId: "00000000-0000-0000-0000-000000000000",
-}),
+          message: message.trim(),
+          propertyId,
+        }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || "Failed to process message");
+        throw new Error(
+          data.error || "Failed to process message"
+        );
       }
 
       setResult(data);
@@ -106,6 +111,11 @@ export default function SimulatorPage() {
             Send a simulated guest message and watch Airbot AI
             analyze and respond to it.
           </p>
+
+          {/* Current Property */}
+          <p className="mt-4 font-mono text-xs text-gray-600">
+            Property ID: {propertyId}
+          </p>
         </div>
 
         {/* Message Input */}
@@ -127,7 +137,9 @@ export default function SimulatorPage() {
             disabled={loading || !message.trim()}
             className="mt-4 rounded-xl bg-white px-6 py-3 text-sm font-medium text-black transition hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            {loading ? "Airbot AI Processing..." : "Process Guest Message"}
+            {loading
+              ? "Airbot AI Processing..."
+              : "Process Guest Message"}
           </button>
         </div>
 
@@ -147,7 +159,11 @@ export default function SimulatorPage() {
 
               <ResultCard
                 label="Route"
-                value={result.route}
+                value={
+                  result.classification ||
+                  result.route ||
+                  "UNKNOWN"
+                }
               />
 
               <ResultCard
@@ -183,7 +199,9 @@ export default function SimulatorPage() {
               </p>
 
               <p className="mt-3 leading-7 text-gray-300">
-                {result.response}
+                {result.reply ||
+                  result.response ||
+                  "No response recorded."}
               </p>
             </div>
 
