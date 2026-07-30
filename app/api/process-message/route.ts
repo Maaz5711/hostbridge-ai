@@ -60,25 +60,49 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    console.log(
-      "HOSPITABLE WEBHOOK BODY:",
-      JSON.stringify(body, null, 2)
-    );
+  
+   const message = String(
+  body.message ||
+  body.data?.body ||
+  ""
+).trim();
 
-    const message = String(body.message || "").trim();
-    const propertyId = String(body.propertyId || body.property_id || "").trim();
+const propertyId = String(
+  body.propertyId ||
+  body.property_id ||
+  body.data?.property?.id ||
+  ""
+).trim();
 
-    const guestName = String(
-      body.guestName || body.guest_name || "Guest"
-    ).trim();
+const guestName = String(
+  body.guestName ||
+  body.guest_name ||
+  body.data?.sender?.first_name ||
+  body.data?.sender?.full_name ||
+  "Guest"
+).trim();
 
-    const conversationId = body.conversationId || body.conversation_id
-      ? String(body.conversationId || body.conversation_id)
-      : null;
+const conversationId =
+  body.conversationId ||
+  body.conversation_id ||
+  body.data?.conversation_id
+    ? String(
+        body.conversationId ||
+        body.conversation_id ||
+        body.data?.conversation_id
+      )
+    : null;
 
-    const reservationId = body.reservationId || body.reservation_id
-      ? String(body.reservationId || body.reservation_id)
-      : null;
+const reservationId =
+  body.reservationId ||
+  body.reservation_id ||
+  body.data?.reservation_id
+    ? String(
+        body.reservationId ||
+        body.reservation_id ||
+        body.data?.reservation_id
+      )
+    : null;
 
     const channel = String(body.channel || "AIRBNB").trim();
 
