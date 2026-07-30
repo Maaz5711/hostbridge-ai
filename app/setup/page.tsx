@@ -27,7 +27,7 @@ export default function SetupPage() {
       .insert({
         property_id: propertyId,
         property_name: propertyName.trim(),
-        wifi_name: "Airbot_Guest",
+        wifi_name: "HostBridge_Guest",
         wifi_password: "DemoPassword123",
         checkin_instructions:
           "Check-in starts at 3:00 PM. Use the lockbox at the entrance.",
@@ -39,7 +39,7 @@ export default function SetupPage() {
         nearby_restaurants:
           "Several restaurants are available within a 10-minute drive.",
         lockbox_code: "1234",
-        escalation_email: "demo@airbot.ai",
+        escalation_email: "demo@hostbridge.ai",
       })
       .select("property_id")
       .single();
@@ -60,7 +60,7 @@ export default function SetupPage() {
         <div className="w-full rounded-2xl border border-white/10 bg-white/[0.03] p-8">
           <div className="mb-8">
             <p className="text-xs uppercase tracking-widest text-gray-500">
-              Airbot AI Demo
+              HostBridge AI Demo
             </p>
 
             <h1 className="mt-3 text-3xl font-bold">
@@ -68,7 +68,7 @@ export default function SetupPage() {
             </h1>
 
             <p className="mt-3 text-gray-400">
-              Create a demo property and experience how Airbot AI
+              Create a demo property and experience how HostBridge AI
               handles guest communication automatically.
             </p>
           </div>

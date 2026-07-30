@@ -35,7 +35,7 @@ export default async function ConversationsPage({
           </h1>
 
           <p className="mt-2 max-w-2xl text-gray-400">
-            View all guest conversations processed by Airbot AI,
+            View all guest conversations processed by HostBridge AI,
             including automated responses and escalations.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default async function ConversationsPage({
               </p>
 
               <p className="mt-2 text-sm text-gray-500">
-                Guest conversations processed by Airbot AI
+                Guest conversations processed by HostBridge AI
                 will appear here.
               </p>
             </div>
@@ -133,7 +133,7 @@ export default async function ConversationsPage({
                 {/* AI Response */}
                 <div className="mt-6 border-t border-white/10 pt-6">
                   <p className="text-xs uppercase tracking-widest text-gray-600">
-                    Airbot AI Response
+                    HostBridge AI Response
                   </p>
 
                   <p className="mt-2 leading-7 text-gray-400">

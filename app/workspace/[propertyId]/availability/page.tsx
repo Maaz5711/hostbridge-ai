@@ -57,7 +57,7 @@ export default async function AvailabilityPage({
 
             <p className="mt-2 max-w-2xl text-gray-400">
               Monitor property availability and recent
-              availability checks performed by Airbot AI.
+              availability checks performed by HostBridge AI.
             </p>
 
           </div>
@@ -88,7 +88,7 @@ export default async function AvailabilityPage({
                 </p>
 
                 <p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-gray-500">
-                  Airbot AI has not performed any availability
+                  HostBridge AI has not performed any availability
                   checks for this property yet.
                 </p>
 

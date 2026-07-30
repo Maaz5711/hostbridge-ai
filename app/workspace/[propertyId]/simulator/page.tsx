@@ -58,7 +58,7 @@ export default function SimulatorPage() {
 
       // Save result for Inbox
       const existing = JSON.parse(
-        localStorage.getItem("airbot_demo_inbox") || "[]"
+        localStorage.getItem("hostbridge_demo_inbox") || "[]"
       );
 
       existing.unshift({
@@ -70,7 +70,7 @@ export default function SimulatorPage() {
       });
 
       localStorage.setItem(
-        "airbot_demo_inbox",
+        "hostbridge_demo_inbox",
         JSON.stringify(existing)
       );
     } catch (error) {
@@ -104,11 +104,11 @@ export default function SimulatorPage() {
           </p>
 
           <h1 className="mt-3 text-3xl font-bold">
-            Test Airbot AI
+            Test HostBridge AI
           </h1>
 
           <p className="mt-2 text-gray-400">
-            Send a simulated guest message and watch Airbot AI
+            Send a simulated guest message and watch HostBridge AI
             analyze and respond to it.
           </p>
 
@@ -138,7 +138,7 @@ export default function SimulatorPage() {
             className="mt-4 rounded-xl bg-white px-6 py-3 text-sm font-medium text-black transition hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50"
           >
             {loading
-              ? "Airbot AI Processing..."
+              ? "HostBridge AI Processing..."
               : "Process Guest Message"}
           </button>
         </div>
@@ -148,7 +148,7 @@ export default function SimulatorPage() {
           <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
 
             <p className="text-xs uppercase tracking-widest text-gray-500">
-              Airbot AI Decision
+              HostBridge AI Decision
             </p>
 
             <h2 className="mt-3 text-2xl font-semibold">
@@ -201,7 +201,7 @@ export default function SimulatorPage() {
               <p className="mt-3 leading-7 text-gray-300">
                 {result.reply ||
                   result.response ||
-                  "No response recorded."}
+                  "No HostBridge AI response recorded."}
               </p>
             </div>
 

@@ -39,7 +39,7 @@ export default async function InboxPage({
             </h1>
 
             <p className="mt-2 max-w-2xl text-gray-400">
-              Monitor guest conversations and see how Airbot AI
+              Monitor guest conversations and see how HostBridge AI
               is handling each request.
             </p>
           </div>
@@ -96,7 +96,7 @@ export default async function InboxPage({
                 </p>
 
                 <p className="mt-2 text-sm text-gray-500">
-                  Guest conversations processed by Airbot AI
+                  Guest conversations processed by HostBridge AI
                   will appear here.
                 </p>
               </div>
@@ -177,7 +177,7 @@ export default async function InboxPage({
                     <div className="flex items-center justify-between">
 
                       <p className="text-xs uppercase tracking-widest text-blue-400">
-                        Airbot AI
+                        HostBridge AI
                       </p>
 
                       {conversation.route ===
@@ -198,7 +198,7 @@ export default async function InboxPage({
 
                     <p className="mt-2 leading-7 text-gray-400">
                       {conversation.ai_reply ||
-                        "No AI response recorded."}
+                        "No HostBridge AI response recorded."}
                     </p>
 
                   </div>

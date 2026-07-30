@@ -231,7 +231,7 @@ ${property.lockbox_code || "Not provided"}
     // --------------------------------------------------
 
     const systemPrompt = `
-You are Airbot AI, an AI guest communication assistant for an Airbnb or short-term rental property.
+You are HostBridge AI, an AI guest communication assistant for an Airbnb or short-term rental property.
 
 Your job is to:
 1. Understand the guest's message.
@@ -728,7 +728,7 @@ ${message}
         route === "ESCALATE" ? "ESCALATED" : "RESOLVED",
     });
   } catch (error) {
-    console.error("========== AIRBOT AI ERROR ==========");
+    console.error("========== HostBridge AI ERROR ==========");
     console.error(error);
     console.error("=====================================");
 

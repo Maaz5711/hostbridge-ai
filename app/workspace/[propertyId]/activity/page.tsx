@@ -35,7 +35,7 @@ export default async function ActivityPage({
           </h1>
 
           <p className="mt-2 max-w-2xl text-gray-400">
-            A chronological record of how Airbot AI processes
+            A chronological record of how HostBridge AI processes
             guest conversations and executes automation workflows.
           </p>
         </div>
@@ -62,7 +62,7 @@ export default async function ActivityPage({
               </p>
 
               <p className="mt-2 text-sm text-gray-500">
-                Activity will appear here when Airbot AI
+                Activity will appear here when HostBridge AI
                 processes guest conversations.
               </p>
             </div>
@@ -145,7 +145,7 @@ export default async function ActivityPage({
                     <div className="mt-6 border-t border-white/10 pt-6">
 
                       <p className="text-xs uppercase tracking-widest text-gray-600">
-                        Airbot AI Action
+                        HostBridge AI Action
                       </p>
 
                       <p className="mt-2 leading-7 text-gray-400">

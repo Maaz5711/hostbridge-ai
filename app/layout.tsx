@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Airbot AI | AI Guest Communication Automation",
+ title: "HostBridge AI | AI Guest Communication Automation",
   description:
-    "AI-powered guest communication and property management automation for short-term rentals.",
+    "AI-powered guest communication and property automation for modern hosts and property managers.",
 };
 
 export default function RootLayout({

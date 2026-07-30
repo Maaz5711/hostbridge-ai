@@ -105,7 +105,7 @@ function LivePreview() {
       >
         <div className="max-w-[85%] text-right">
           <p className="text-[11px] uppercase tracking-widest text-gray-600">
-            Airbot AI · replied in 1.4s
+             HostBridge AI · replied in 1.4s
           </p>
           <div
             className={`mt-2 inline-block rounded-2xl rounded-tr-sm border px-4 py-2.5 text-left text-sm ${
@@ -280,7 +280,7 @@ const PIPELINE_STAGES: {
     category: "log",
   },
   {
-    label: "Visible in the Airbot Inbox",
+    label: "Visible in the  HostBridge Inbox",
     description: "The host can see exactly what was said, why, and how confident the system was.",
     category: "log",
   },
@@ -394,7 +394,7 @@ export default function HomePage() {
               A
             </div>
             <div>
-              <p className="text-sm font-semibold tracking-tight">AIRBOT AI</p>
+              <p className="text-sm font-semibold tracking-tight">HostBridge AI</p>
               <p className="text-xs text-gray-500">AI Guest Automation</p>
             </div>
           </Link>
@@ -402,7 +402,7 @@ export default function HomePage() {
           <div className="hidden items-center gap-8 text-sm text-gray-400 md:flex">
             <a href="#how-it-works" className="hover:text-white">How It Works</a>
             <a href="#capabilities" className="hover:text-white">Capabilities</a>
-            <a href="#positioning" className="hover:text-white">Why Airbot</a>
+            <a href="#positioning" className="hover:text-white">Why HostBridge AI</a>
           </div>
 
           <Link
@@ -427,11 +427,11 @@ export default function HomePage() {
 
             <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-6xl">
               Your PMS shows you the message.
-              <span className="block text-gray-500">Airbot AI already answered it.</span>
+              <span className="block text-gray-500">HostBridge AI already answered it.</span>
             </h1>
 
             <p className="mt-6 max-w-xl text-lg leading-8 text-gray-400">
-              Airbot AI reads every guest message, understands what they need,
+              HostBridge AI reads every guest message, understands what they need,
               checks your property details and calendar, and replies —
               automatically, in seconds, 24 hours a day. Urgent issues still
               reach you.
@@ -546,7 +546,7 @@ on what the guest needs.
           </h2>
           <p className="mt-6 max-w-2xl text-gray-400">
          Hospitable and similar platforms provide the connection to
-the guest inbox. Airbot AI adds a transparent decision and
+the guest inbox. HostBridge AI adds a transparent decision and
 automation layer on top — classifying messages, routing them
 through the right workflow, checking property and availability
 data, and recording the outcome.
@@ -567,7 +567,7 @@ data, and recording the outcome.
             </div>
             <div className="bg-[#05070a] p-8">
               <p className="text-xs uppercase tracking-widest text-green-400">
-                Airbot AI
+                HostBridge AI
               </p>
               <ul className="mt-6 space-y-4 text-sm text-gray-200">
                 <li>→ Every reply shows its intent, priority, and confidence</li>
@@ -581,7 +581,7 @@ data, and recording the outcome.
           </div>
 
           <p className="mt-8 max-w-2xl text-sm text-gray-500">
-            Airbot AI uses a PMS like Hospitable to connect with Airbnb's
+             HostBridge AI uses a PMS like Hospitable to connect with Airbnb's
 guest inbox, then adds an automation and decision layer on top.
 It processes the incoming message, retrieves the right property
 context, routes it through the appropriate workflow, and records
@@ -596,7 +596,7 @@ the outcome.
           <h2 className="text-4xl font-bold sm:text-5xl">Watch it read a message right now.</h2>
           <p className="mx-auto mt-6 max-w-xl text-gray-400">
             No signup, no setup. Send a simulated guest message and watch
-            Airbot AI classify, route, respond, and log it in real time.
+             HostBridge AI classify, route, respond, and log it in real time.
           </p>
           <Link
             href="/setup"
@@ -610,7 +610,7 @@ the outcome.
       {/* Footer */}
       <footer className="border-t border-white/10 py-8">
         <div className="mx-auto flex max-w-7xl flex-col gap-2 px-6 text-sm text-gray-500 sm:flex-row sm:items-center sm:justify-between">
-          <span>© 2026 Airbot AI — AI-powered guest communication automation</span>
+          <span>© 2026  HostBridge AI — AI-powered guest communication automation</span>
           <div className="flex gap-4">
             <a href="#" className="hover:text-gray-300">GitHub</a>
             <a href="#" className="hover:text-gray-300">LinkedIn</a>

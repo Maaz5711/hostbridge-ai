@@ -69,12 +69,12 @@ export default function Sidebar({
         <Link href="/">
           <div className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white font-bold text-black">
-              A
+              H
             </div>
 
             <div>
               <p className="text-sm font-semibold tracking-tight">
-                AIRBOT AI
+                HostBridge AI
               </p>
 
               <p className="text-xs text-gray-500">

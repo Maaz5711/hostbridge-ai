@@ -8,12 +8,12 @@ export default function HomePage() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <Link href="/" className="flex items-center gap-3">
             <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white font-bold text-black">
-              A
+              H
             </div>
 
             <div>
               <p className="text-sm font-semibold tracking-tight">
-                AIRBOT AI
+                HostBridge AI
               </p>
 
               <p className="text-xs text-gray-500">
@@ -46,7 +46,7 @@ export default function HomePage() {
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-400">
-            Airbot AI analyzes guest messages, understands intent,
+            HostBridge AI analyzes guest messages, understands intent,
             automatically responds to routine requests, checks
             availability, escalates important issues, and logs every
             interaction in one centralized workspace.
@@ -86,7 +86,7 @@ export default function HomePage() {
             <FeatureCard
               number="03"
               title="Smart Routing"
-              description="Airbot AI sends the request to the correct automation workflow."
+              description="HostBridge AI sends the request to the correct automation workflow."
             />
 
             <FeatureCard

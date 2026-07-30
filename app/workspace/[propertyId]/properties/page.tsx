@@ -37,7 +37,7 @@ export default async function PropertiesPage({
 
             <p className="mt-2 max-w-2xl text-gray-400">
               View the property information currently used by
-              Airbot AI when responding to guest messages.
+              HostBridge AI when responding to guest messages.
             </p>
           </div>
 
@@ -198,11 +198,11 @@ export default async function PropertiesPage({
                 </p>
 
                 <h3 className="mt-3 text-lg font-semibold">
-                  This information powers Airbot AI
+                  This information powers HostBridge AI
                 </h3>
 
                 <p className="mt-2 max-w-2xl text-sm leading-6 text-gray-400">
-                  Airbot AI uses the property information stored
+                  HostBridge AI uses the property information stored
                   in Supabase to answer guest questions. The AI
                   is instructed to only use verified property
                   information and avoid inventing details.

@@ -36,7 +36,7 @@ export default async function EscalationsPage({
           </h1>
 
           <p className="mt-2 max-w-2xl text-gray-400">
-            Guest conversations that Airbot AI identified as
+            Guest conversations that HostBridge AI identified as
             requiring human attention.
           </p>
         </div>
@@ -63,7 +63,7 @@ export default async function EscalationsPage({
               </p>
 
               <p className="mt-2 text-sm text-gray-500">
-                Airbot AI has not identified any conversations
+                HostBridge AI has not identified any conversations
                 requiring human intervention.
               </p>
             </div>
@@ -112,7 +112,7 @@ export default async function EscalationsPage({
                 {/* AI Response */}
                 <div className="mt-6 border-t border-white/10 pt-6">
                   <p className="text-xs uppercase tracking-widest text-gray-600">
-                    Airbot AI Action
+                    HostBridge AI Action
                   </p>
 
                   <p className="mt-2 leading-7 text-gray-400">

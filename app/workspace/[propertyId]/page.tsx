@@ -111,7 +111,7 @@ export default async function WorkspacePage({
                 </p>
 
                 <h2 className="mt-2 text-xl font-semibold">
-                  Airbot AI is operating normally
+                  HostBridge AI is operating normally
                 </h2>
 
                 <p className="mt-2 text-sm text-gray-500">
@@ -139,7 +139,7 @@ export default async function WorkspacePage({
           <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-8">
 
             <p className="text-xs uppercase tracking-widest text-gray-500">
-              Airbot AI Automation
+              HostBridge AI Automation
             </p>
 
             <h2 className="mt-3 text-2xl font-semibold">
@@ -148,7 +148,7 @@ export default async function WorkspacePage({
 
             <p className="mt-4 max-w-2xl leading-7 text-gray-400">
               Simulate a guest conversation and watch
-              Airbot AI understand the request, classify
+              HostBridge AI understand the request, classify
               the intent, select the correct automation
               route, generate a response, and log the
               interaction.
@@ -180,14 +180,14 @@ export default async function WorkspacePage({
 
               <FlowCard
                 number="02"
-                title="AI Understanding"
-                description="Gemini analyzes the message and identifies intent."
+                title="HostBridge AI Understanding"
+                description="HostBridge AI analyzes the message and identifies intent."
               />
 
               <FlowCard
                 number="03"
                 title="Smart Routing"
-                description="Airbot AI selects the correct automation route."
+                description="HostBridge AI selects the correct automation route."
               />
 
               <FlowCard
