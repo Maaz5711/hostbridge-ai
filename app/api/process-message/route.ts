@@ -58,11 +58,12 @@ function deriveRoute(
 
 export async function POST(request: Request) {
   try {
-    // --------------------------------------------------
-    // 1. Read incoming request
-    // --------------------------------------------------
-
     const body = await request.json();
+
+    console.log(
+      "HOSPITABLE WEBHOOK BODY:",
+      JSON.stringify(body, null, 2)
+    );
 
     const message = String(body.message || "").trim();
     const propertyId = String(body.propertyId || body.property_id || "").trim();
