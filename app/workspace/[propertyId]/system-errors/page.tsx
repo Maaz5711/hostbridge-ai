@@ -11,12 +11,12 @@ export default async function SystemErrorsPage({
   params: Promise<{ propertyId: string }>;
 }) {
   const { propertyId } = await params;
-
 const { data: errors, error } = await supabase
   .from("conversation_logs")
   .select(
     "id, property_id, guest_message, ai_reply, route, intent, priority, confidence, sentiment, status, created_at"
   )
+  .eq("property_id", propertyId)
   .eq("route", "PROPERTY_NOT_FOUND")
   .order("created_at", { ascending: false });
 

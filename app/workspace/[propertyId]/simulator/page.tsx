@@ -160,10 +160,10 @@ export default function SimulatorPage() {
               <ResultCard
                 label="Route"
                 value={
-                  result.classification ||
-                  result.route ||
-                  "UNKNOWN"
-                }
+  result.route ||
+  result.classification ||
+  "UNKNOWN"
+}
               />
 
               <ResultCard

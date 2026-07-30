@@ -1,4 +1,3 @@
-import Sidebar from "@/components/workspace/Sidebar";
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
@@ -51,16 +50,8 @@ export default async function WorkspacePage({
   return (
     <div className="min-h-screen bg-[#05070a] text-white">
 
-      {/* Sidebar */}
-      <Sidebar
-        propertyId={propertyId}
-        propertyName={
-          property?.property_name || "Demo Property"
-        }
-      />
-
       {/* Main Content */}
-      <main className="ml-64 min-h-screen p-6 md:p-10">
+    <main className="min-h-screen p-6 md:p-10">
 
         <div className="mx-auto max-w-7xl">
 

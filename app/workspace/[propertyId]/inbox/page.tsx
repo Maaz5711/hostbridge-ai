@@ -12,12 +12,7 @@ export default async function InboxPage({
 }) {
   const { propertyId } = await params;
 
-  // Fetch property
-  const { data: property } = await supabase
-    .from("properties")
-    .select("property_name")
-    .eq("property_id", propertyId)
-    .single();
+ 
 
   // Fetch conversations
   const { data: conversations, error } = await supabase
