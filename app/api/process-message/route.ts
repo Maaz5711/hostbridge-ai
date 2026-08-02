@@ -633,13 +633,11 @@ ${message}
     // --------------------------------------------------
 
     const finalReply =
-      typeof makeResult?.reply === "string"
-        ? makeResult.reply
-        : typeof makeResult?.response === "string"
-        ? makeResult.response
-        : typeof makeResult?.ai_reply === "string"
-        ? makeResult.ai_reply
-        : reply;
+  typeof makeResult?.reply === "string" &&
+  makeResult.reply.trim() &&
+  makeResult.reply !== "Accepted"
+    ? makeResult.reply
+    : reply;
 
     return NextResponse.json({
       propertyFound: true,
