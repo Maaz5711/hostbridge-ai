@@ -637,6 +637,8 @@ ${message}
   makeResult.reply.trim() &&
   makeResult.reply !== "Accepted"
     ? makeResult.reply
+    : intentType === "AVAILABILITY"
+    ? "Thank you for your inquiry. The property is available for the requested dates. Please let us know if you need any further assistance with your booking."
     : reply;
 
     return NextResponse.json({

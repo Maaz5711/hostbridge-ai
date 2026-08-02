@@ -14,7 +14,7 @@ export default async function AvailabilityPage({
   const { propertyId } = await params;
 
   // Get property
-  const { data: property, error: propertyError } =
+const { data: property } =
     await supabase
       .from("properties")
       .select("property_name")
@@ -42,25 +42,60 @@ export default async function AvailabilityPage({
 
       {/* Main */}
       <main className="ml-64 min-h-screen p-6 md:p-10">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-5xl">
 
           {/* Header */}
-          <div className="mb-10">
+<div className="mb-12">
+  <p className="text-xs font-medium uppercase tracking-[0.22em] text-blue-400">
+    Property Operations
+  </p>
 
-            <p className="text-xs uppercase tracking-widest text-blue-400">
-              Property Operations
-            </p>
+  <h1 className="mt-4 text-4xl font-bold tracking-tight">
+    Availability Overview
+  </h1>
 
-            <h1 className="mt-3 text-3xl font-bold">
-              Availability
-            </h1>
+  <p className="mt-4 max-w-3xl text-base leading-7 text-gray-400">
+    Monitor every availability check performed by HostBridge AI,
+    including booking dates, availability decisions, and activity
+    history for this property.
+  </p>
+</div>
 
-            <p className="mt-2 max-w-2xl text-gray-400">
-              Monitor property availability and recent
-              availability checks performed by HostBridge AI.
-            </p>
+{/* Stats */}
+<div className="mb-10 grid gap-5 md:grid-cols-3">
+  <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6">
+    <p className="text-xs uppercase tracking-widest text-gray-500">
+      Total Checks
+    </p>
+    <p className="mt-4 text-4xl font-bold">
+      {availability?.length ?? 0}
+    </p>
+  </div>
 
-          </div>
+  <div className="rounded-2xl border border-green-500/20 bg-green-500/[0.05] p-6">
+    <p className="text-xs uppercase tracking-widest text-green-400">
+      Available
+    </p>
+    <p className="mt-4 text-4xl font-bold text-green-400">
+      {availability?.filter(
+        (r) => r.status?.toUpperCase() === "AVAILABLE"
+      ).length ?? 0}
+    </p>
+  </div>
+
+  <div className="rounded-2xl border border-red-500/20 bg-red-500/[0.05] p-6">
+    <p className="text-xs uppercase tracking-widest text-red-400">
+      Unavailable
+    </p>
+    <p className="mt-4 text-4xl font-bold text-red-400">
+      {availability?.filter(
+        (r) => r.status?.toUpperCase() !== "AVAILABLE"
+      ).length ?? 0}
+    </p>
+  </div>
+</div>
+
+{/* Database Error */}
 
           {/* Database Error */}
           {availabilityError && (
@@ -98,7 +133,7 @@ export default async function AvailabilityPage({
           {/* Availability Records */}
           {availability &&
             availability.length > 0 && (
-              <div className="space-y-5">
+              <div className="space-y-6">
 
                 {/* Count */}
                 <div>
@@ -112,74 +147,77 @@ export default async function AvailabilityPage({
                 </div>
 
                 {availability.map((record) => (
-                  <div
-                    key={record.id}
-                    className="rounded-2xl border border-white/10 bg-white/[0.03] p-6"
-                  >
+                 <div
+  key={record.id}
+  className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 transition duration-300 hover:border-blue-500/30 hover:bg-white/[0.05]"
+>
 
-                    {/* Top */}
-                    <div className="flex flex-wrap items-center justify-between gap-4">
+  <div className="flex flex-wrap items-center justify-between gap-4">
 
-                      <div className="flex items-center gap-3">
+    <div className="flex items-center gap-3">
 
-                        <span
-                          className={`rounded-full px-3 py-1 text-xs font-medium ${
-                            record.status === "AVAILABLE"
-                              ? "bg-green-500/10 text-green-400"
-                              : "bg-red-500/10 text-red-400"
-                          }`}
-                        >
-                          {record.status || "UNKNOWN"}
-                        </span>
+      <span
+        className={`rounded-full px-4 py-1.5 text-xs font-semibold ${
+          record.status?.toUpperCase() === "AVAILABLE"
+            ? "bg-green-500/10 text-green-400"
+            : "bg-red-500/10 text-red-400"
+        }`}
+      >
+        {record.status || "UNKNOWN"}
+      </span>
 
-                        <span className="text-xs uppercase tracking-widest text-gray-500">
-                          Availability Check
-                        </span>
+      <span className="text-xs uppercase tracking-[0.18em] text-gray-500">
+        Availability Check
+      </span>
 
-                      </div>
+    </div>
 
-                      <span className="text-xs text-gray-600">
-                        {record.created_at
-                          ? new Date(
-                              record.created_at
-                            ).toLocaleString()
-                          : ""}
-                      </span>
+    <span className="text-xs text-gray-500">
+      {record.created_at
+        ? new Date(record.created_at).toLocaleString()
+        : "—"}
+    </span>
 
-                    </div>
+  </div>
 
-                    {/* Dates */}
-                    <div className="mt-6 grid gap-6 sm:grid-cols-2">
+  <div className="mt-8 grid gap-8 md:grid-cols-3">
 
-                      <Info
-                        label="Check-in"
-                        value={
-                          record.start_date || "—"
-                        }
-                      />
+    <Info
+      label="Check-in"
+      value={record.start_date || "—"}
+    />
 
-                      <Info
-                        label="Check-out"
-                        value={
-                          record.end_date || "—"
-                        }
-                      />
+    <Info
+      label="Check-out"
+      value={record.end_date || "—"}
+    />
 
-                    </div>
+    <Info
+      label="Status"
+      value={record.status || "UNKNOWN"}
+    />
 
-                    {/* Property ID */}
-                    <div className="mt-6 border-t border-white/10 pt-6">
+  </div>
 
-                      <Info
-                        label="Property ID"
-                        value={
-                          record.property_id || "—"
-                        }
-                      />
+  <div className="mt-8 border-t border-white/10 pt-8">
 
-                    </div>
+    <div className="grid gap-8 md:grid-cols-2">
 
-                  </div>
+      <Info
+        label="Property"
+        value={property?.property_name || "Demo Property"}
+      />
+
+      <Info
+        label="Property ID"
+        value={record.property_id || "—"}
+      />
+
+    </div>
+
+  </div>
+
+</div>
                 ))}
 
               </div>
@@ -201,11 +239,11 @@ function Info({
   return (
     <div>
 
-      <p className="text-xs uppercase tracking-widest text-gray-600">
+      <p className="text-xs font-medium uppercase tracking-[0.18em] text-gray-600">
         {label}
       </p>
 
-      <p className="mt-2 text-sm text-gray-300">
+      <p className="mt-3 break-all text-base font-medium text-gray-200">
         {value}
       </p>
 

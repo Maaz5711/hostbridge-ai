@@ -659,7 +659,7 @@ const CAPABILITIES = [
   {
     title: "Property-aware replies",
     description:
-      "Answers routine questions from that property's verified data — not generic AI knowledge.",
+      "House rules, check-in guides, and amenity details can be attached per property. Every reply is grounded in that data - if the answer isn't there, the message is routed to a human instead of guessed.",
   },
   {
     title: "Availability automation",
@@ -768,7 +768,7 @@ function Capabilities() {
 // ============================================
 
 const VISION_STEPS = [
-  "Connect a property management platform or channel",
+  "Connect a PMS or channel",
   "Connect properties",
   "Configure rules and property data",
   "Activate automated workflows",
@@ -790,8 +790,8 @@ function ProductVision() {
         <p className="mt-6 max-w-xl text-base leading-7 text-gray-400">
           The current demo shows the decision engine and workflow. The
           product is being developed toward a SaaS where property managers
-          can connect their property-management platform, bring their
-          properties into the workspace, and run these automations without
+          can connect their PMS, bring their properties into
+the workspace, and run these automations without
           rebuilding the system themselves.
         </p>
 
@@ -933,8 +933,8 @@ function Roadmap() {
 
         <p className="mt-4 text-sm leading-7 text-gray-400">
           The demo shows the automation engine today. The product is being
-          built toward letting property managers connect their own
-          property-management platform and properties without rebuilding any
+          built toward letting property managers connect their own PMS
+and properties without rebuilding any
           of this.
         </p>
 
@@ -990,6 +990,80 @@ function Roadmap() {
             Automation engine
           </p>
         </div>
+      </div>
+    </div>
+  );
+}// ============================================
+// FAQ
+// ============================================
+
+const FAQS = [
+  {
+    q: "Is this actually AI, or scripted responses?",
+    a: "Every reply comes from Google Gemini reading the guest's real message alongside that property's verified data — not a template. The demo on this page simulates the guest side so it works without a live account, but the classification and reply logic is the same engine running in production.",
+  },
+  {
+    q: "What happens if the AI gets something wrong?",
+    a: "It's designed to know what it doesn't know. Every message gets a confidence score, and anything below 75% is routed to a human instead of sent automatically — regardless of how it was classified. Wrong answers with high confidence are rare; low-confidence guesses are avoided entirely.",
+  },
+  {
+    q: "Does this replace my PMS?",
+    a: "No. HostBridge AI needs a PMS to actually connect to Airbnb's inbox and send messages — that plumbing stays exactly as it is. What HostBridge replaces is the black-box decision layer some PMS tools bundle on top of that connection.",
+  },
+  {
+    q: "What data does it use to answer guests?",
+    a: "Only the property's own verified details — house rules, check-in guides, WiFi, parking, and calendar availability — stored in your own database. It never invents information that isn't there.",
+  },
+  {
+    q: "Can I see what it decided, after the fact?",
+    a: "Yes. Every message, classification, confidence score, and outcome is logged. Nothing happens in a black box you can't review later.",
+  },
+];
+
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="rounded-2xl border border-white/10 bg-white/[0.02]">
+      <button
+        onClick={() => setOpen((o) => !o)}
+        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+        aria-expanded={open}
+      >
+        <span className="text-sm font-medium text-white">{q}</span>
+        <span
+          className={`flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border border-white/10 text-xs text-gray-400 transition-transform duration-300 ${
+            open ? "rotate-45" : ""
+          }`}
+        >
+          +
+        </span>
+      </button>
+      <div
+        className={`grid transition-all duration-300 ease-out ${
+          open ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <p className="px-6 pb-5 text-sm leading-6 text-gray-400">{a}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function FAQSection() {
+  return (
+    <div>
+      <p className="text-xs font-medium uppercase tracking-[0.22em] text-gray-600">
+        Questions
+      </p>
+      <h2 className="mt-4 max-w-2xl text-4xl font-semibold tracking-tight sm:text-5xl">
+        Before you ask.
+      </h2>
+      <div className="mt-10 max-w-3xl space-y-3">
+        {FAQS.map((f) => (
+          <FAQItem key={f.q} q={f.q} a={f.a} />
+        ))}
       </div>
     </div>
   );
@@ -1049,6 +1123,9 @@ export default function HomePage() {
             >
               Roadmap
             </a>
+            <a href="#faq" className="transition hover:text-white">
+  FAQ
+</a>
           </div>
 
           <Link
@@ -1074,35 +1151,41 @@ export default function HomePage() {
             </div>
 
             <h1 className="mt-7 max-w-3xl text-5xl font-semibold tracking-[-0.05em] sm:text-6xl lg:text-7xl">
-              Your property platform receives the message.
+              Your PMS receives the message.
               <span className="block bg-gradient-to-r from-white via-gray-200 to-gray-500 bg-clip-text text-transparent">
                 HostBridge AI decides what happens next.
               </span>
             </h1>
 
             <p className="mt-7 max-w-2xl text-lg leading-8 text-gray-400 sm:text-xl">
-              HostBridge AI is the automation layer between your property
-              management platform and guest communication. It reads the
-              message, understands the request, uses the right property data,
-              and sends it into the workflow that should handle it.
+              HostBridge AI is the automation layer between your PMS
+  (property management software) and guest communication. It reads
+  the message, understands the request, uses the right property
+  data, and sends it into the workflow that should handle it.
             </p>
 
-            <div className="mt-8 rounded-2xl border border-emerald-500/15 bg-emerald-500/[0.035] p-5 text-sm leading-6 text-gray-300">
-              <span className="font-medium text-emerald-400">
-                The difference:
-              </span>{" "}
-              many PMS auto-reply tools simply send a response or stay silent.
-              HostBridge AI makes the decision visible by capturing
-              confidence, intent, priority, and sentiment — then routes
-              situations that require human intervention into the appropriate
-              escalation workflow.
-            </div>
+           <div className="mt-8 rounded-2xl border border-emerald-500/15 bg-emerald-500/[0.035] p-5 text-sm leading-6 text-gray-300">
+  <span className="font-medium text-emerald-400">
+    The difference:
+  </span>{" "}
+  many PMS auto-reply tools simply send a response or stay silent.
+  HostBridge AI makes the decision visible by capturing
+  confidence, intent, priority, and sentiment - then routes
+  situations that require human intervention into the appropriate
+  escalation workflow.
+</div>
 
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Link
-                href="/setup"
-                className="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-gray-200"
-              >
+<p className="mt-4 max-w-2xl text-sm leading-6 text-gray-500">
+  Attach a property's house rules, check-in guide, and amenity
+  details and every reply is grounded in that exact information.
+  If something isn't covered, it's routed to you - never guessed.
+</p>
+
+<div className="mt-9 flex flex-wrap gap-3">
+  <Link
+    href="/setup"
+    className="rounded-xl bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-gray-200"
+  >
                 See the Interactive Demo
               </Link>
 
@@ -1137,8 +1220,7 @@ export default function HomePage() {
             </h2>
 
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-6 text-gray-500">
-              The channel delivers the message. Your property platform
-              provides operational context. HostBridge AI turns that into an
+              The channel delivers the message. Your PMS provides operational context. HostBridge AI turns that into an
               explicit, auditable decision — then routes it.
             </p>
           </div>
@@ -1210,40 +1292,41 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ROADMAP */}
-      <section
-        id="roadmap"
-        className="border-b border-white/10 py-24"
+     {/* ROADMAP */}
+<section id="roadmap" className="border-b border-white/10 py-24">
+  <div className="mx-auto max-w-7xl px-6">
+    <Roadmap />
+  </div>
+</section>
+
+{/* FINAL CTA */}
+<section className="relative overflow-hidden py-24">
+  <div className="absolute left-1/2 top-1/2 -z-10 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400/[0.05] blur-[120px]" />
+  <div className="mx-auto max-w-4xl px-6 text-center">
+    <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
+      The demo shows the automation. The product will make it yours.
+    </h2>
+    <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-gray-400">
+      The interactive demo shows how a connected guest message would
+      be processed by HostBridge AI.
+    </p>
+    <div className="mt-9 flex flex-wrap justify-center gap-3">
+      <Link
+        href="/setup"
+        className="rounded-xl bg-white px-7 py-3 text-sm font-semibold text-black transition hover:bg-gray-200"
       >
-        <div className="mx-auto max-w-7xl px-6">
-          <Roadmap />
-        </div>
-      </section>
+        See the Interactive Demo
+      </Link>
+    </div>
+  </div>
+</section>
 
-      {/* FINAL CTA */}
-      <section className="relative overflow-hidden py-24">
-        <div className="absolute left-1/2 top-1/2 -z-10 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400/[0.05] blur-[120px]" />
-
-        <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            The demo shows the automation. The product will make it yours.
-          </h2>
-
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-gray-400">
-            The interactive demo shows how a connected guest message would
-            be processed by HostBridge AI.
-          </p>
-
-          <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Link
-              href="/setup"
-              className="rounded-xl bg-white px-7 py-3 text-sm font-semibold text-black transition hover:bg-gray-200"
-            >
-              See the Interactive Demo
-            </Link>
-          </div>
-        </div>
-      </section>
+{/* FAQ */}
+<section id="faq" className="border-b border-white/10 py-24">
+  <div className="mx-auto max-w-7xl px-6">
+    <FAQSection />
+  </div>
+</section>
 
       {/* FOOTER */}
       <footer className="py-8">
