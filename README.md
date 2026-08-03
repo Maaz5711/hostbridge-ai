@@ -1,64 +1,63 @@
-# HostBridge AI
+<div align="center">
 
-AI-powered guest communication automation system for Airbnb and short-term rental operations.
+# 🏡 HostBridge AI
 
-HostBridge AI is an intelligent automation platform that uses AI classification, workflow automation, and property data integration to help hosts manage guest conversations faster and more efficiently.
+### AI-Powered Guest Communication Automation for Airbnb & Short-Term Rentals
 
-The system analyzes incoming guest messages, understands their intent, routes them to the correct workflow, generates appropriate responses, and escalates critical issues when human intervention is required.
+Intelligent AI routing, workflow automation, and property management built with Next.js, Gemini AI, Supabase, and Make.com.
 
----
+![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-38B2AC?logo=tailwind-css)
+![Supabase](https://img.shields.io/badge/Supabase-Database-3ECF8E?logo=supabase)
+![Gemini](https://img.shields.io/badge/Google-Gemini-blue?logo=google)
+![Make](https://img.shields.io/badge/Automation-Make-purple)
 
-# Overview
-
-Managing guest communication manually is repetitive and time-consuming.
-
-HostBridge AI acts as an AI assistant that can:
-
-- Understand guest messages
-- Classify guest intent
-- Detect urgency and sentiment
-- Route conversations automatically
-- Answer routine property questions
-- Handle availability requests
-- Process reservation inquiries
-- Escalate important issues
-- Store conversation history and analytics
-
-The goal is to reduce response time, improve guest experience, and automate repetitive hosting operations.
+</div>
 
 ---
 
-# System Workflow
+## Overview
 
-```
-Guest Message
-      |
-      v
-HostBridge AI
-      |
-      v
-AI Intent Classification
-      |
-      v
-Route Decision
-      |
-      +-------------------------+
-      |                         |
-      v                         v
-Normal Requests             Escalations
-      |                         |
-      v                         v
-Automated Response        Host Notification
-      |
-      v
-Conversation Logging
-```
+Managing guest communication manually is repetitive and time-consuming. HostBridge AI is an intelligent automation platform that uses AI classification, workflow automation, and property data integration to help hosts manage guest conversations faster and more efficiently.
+
+The system analyzes incoming guest messages, understands their intent, routes them to the correct workflow, generates appropriate responses using verified property data, and escalates critical issues when human intervention is required.
+
+> **Note:** Airbnb connectivity is currently demonstrated through workflow automation (Make.com + PMS webhook integration) rather than a direct Airbnb API connection, since Airbnb does not offer public API access to individual developers. The interactive demo on this site simulates the guest-message side of that pipeline so the automation engine can be explored without a live account.
+
+### Key Highlights
+
+- 🧠 **AI-driven classification** — every message is scored for intent, priority, sentiment, and confidence before any action is taken
+- 🛡️ **Confidence-gated escalation** — messages below a 75% confidence threshold are routed to a human automatically, regardless of classification
+- 🏠 **Property-aware responses** — replies are generated only from that property's verified data, never invented
+- 📊 **Full conversation logging** — every message, decision, and outcome is stored in Supabase for review
+- 🔌 **PMS-agnostic design** — built on generic webhook/HTTP modules so it isn't locked to a single property management platform
 
 ---
 
-# Features
+## Screenshots
 
-## AI Message Classification
+### Homepage
+
+![Homepage](screenshots/homepage.png)
+
+### AI Decision Dashboard
+
+![Dashboard](screenshots/dashboard.png)
+
+### Automation Workflow
+
+![Workflow](screenshots/make-workflow.png)
+
+### Conversation Logs
+
+![Logs](screenshots/conversation-logs.png)
+
+---
+
+## Features
+
+### AI Message Classification
 
 Every incoming guest message is analyzed by AI and classified based on:
 
@@ -75,13 +74,9 @@ Supported intent categories:
 - Availability
 - Escalation
 
----
+### Automated Inquiry Handling
 
-# Automated Inquiry Handling
-
-HostBridge AI handles common guest questions automatically.
-
-Examples:
+HostBridge AI handles common guest questions automatically, using verified property data:
 
 - WiFi information
 - Check-in instructions
@@ -91,19 +86,11 @@ Examples:
 - Nearby recommendations
 - Property information
 
-Responses are generated using verified property data.
+### Availability Workflow
 
----
+Availability requests are automatically identified and processed.
 
-# Availability Workflow
-
-Availability requests are automatically identified.
-
-Example:
-
-> Is this property available for my dates?
-
-The workflow:
+> Example: *"Is this property available for my dates?"*
 
 1. Detects availability intent
 2. Extracts requested dates
@@ -111,26 +98,13 @@ The workflow:
 4. Checks availability logic
 5. Returns a guest-facing response
 
----
+### Reservation Workflow
 
-# Reservation Workflow
+Handles booking-related conversations, including booking requests, reservation assistance, and guest booking questions.
 
-Handles booking-related conversations.
+### Escalation System
 
-Examples:
-
-- Booking requests
-- Reservation assistance
-- Guest booking questions
-- Reservation-related inquiries
-
----
-
-# Escalation System
-
-HostBridge AI identifies situations that require human attention.
-
-Examples:
+HostBridge AI identifies situations that require human attention rather than generating unsafe automated responses:
 
 - Safety concerns
 - Lockouts
@@ -139,11 +113,9 @@ Examples:
 - Serious complaints
 - Security issues
 
-Instead of generating unsafe automated responses, the system creates an escalation path.
-
 ---
 
-# Architecture
+## Architecture
 
 ```
                     Guest
@@ -174,178 +146,143 @@ Instead of generating unsafe automated responses, the system creates an escalati
 
 ---
 
-# Technology Stack
+## Tech Stack
 
-## Frontend
-
-- Next.js
-- React
-- Tailwind CSS
-
-## Backend
-
-- Next.js API Routes
-- Supabase
-
-## Artificial Intelligence
-
-- Google Gemini API
-
-## Automation
-
-- Make.com
-
-## Database
-
-- Supabase PostgreSQL
+| Category | Technologies |
+|----------|--------------|
+| Frontend | Next.js, React, Tailwind CSS |
+| Backend | Next.js API Routes |
+| AI | Google Gemini API |
+| Automation | Make.com |
+| Database | Supabase PostgreSQL |
 
 ---
 
-# Database & Logging
+## System Workflow
 
-HostBridge AI stores conversation data including:
-
-- Guest message
-- AI response
-- Intent
-- Route
-- Priority
-- Sentiment
-- Confidence score
-- Conversation status
-- Response time
-
-This allows monitoring and future analytics.
+```
+Guest Message
+      |
+      v
+HostBridge AI
+      |
+      v
+AI Intent Classification
+      |
+      v
+Route Decision
+      |
+      +-------------------------+
+      |                         |
+      v                         v
+Normal Requests             Escalations
+      |                         |
+      v                         v
+Automated Response        Host Notification
+      |
+      v
+Conversation Logging
+```
 
 ---
 
-# Workflow Screenshots
+## Local Installation
 
-Add workflow screenshots inside:
-
-```
-screenshots/
-```
-
-Example:
-
-```
-screenshots/
-│
-├── dashboard.png
-├── make-workflow.png
-└── availability-flow.png
-```
-
-Then display them here:
-
-## AI Decision Dashboard
-
-![AI Decision Dashboard](screenshots/dashboard.png)
-
-
-## Automation Workflow
-
-![Make Workflow](screenshots/make-workflow.png)
-
-
-## Availability Workflow
-
-![Availability Workflow](screenshots/availability-flow.png)
-
----
-
-# Local Installation
-
-## Clone Repository
+### Clone Repository
 
 ```bash
 git clone https://github.com/Maaz5711/HostBridge-AI.git
-
 cd HostBridge-AI
 ```
 
----
-
-## Install Dependencies
+### Install Dependencies
 
 ```bash
 npm install
 ```
 
----
+### Environment Variables
 
-## Environment Variables
-
-Create:
-
-```
-.env.local
-```
-
-Add:
+Create a `.env.local` file:
 
 ```
 NEXT_PUBLIC_SUPABASE_URL=
-
 SUPABASE_SERVICE_ROLE_KEY=
-
 GEMINI_API_KEY=
 ```
 
----
-
-## Run Application
+### Run Application
 
 ```bash
 npm run dev
 ```
 
-Open:
+Open [http://localhost:3000](http://localhost:3000)
+
+---
+
+## Project Structure
 
 ```
-http://localhost:3000
+HostBridge-AI/
+│
+├── app/
+│   ├── page.tsx                     # Landing page
+│   ├── setup/                       # Demo property setup
+│   ├── api/
+│   │   └── demo/route.ts            # Simulated AI decision endpoint
+│   └── workspace/
+│       └── [propertyId]/
+│           ├── layout.tsx           # Workspace shell + sidebar
+│           ├── page.tsx             # Overview dashboard
+│           ├── simulator/           # AI Simulator
+│           ├── inbox/               # AI Inbox (conversation log)
+│           └── availability/        # Availability records
+│
+├── components/
+│   └── workspace/
+│       └── Sidebar.tsx
+│
+├── lib/
+│   └── supabase/
+│       └── client.ts
+│
+├── screenshots/
+└── .env.local
 ```
 
 ---
 
-# Current Project Status
+## Current Project Status
 
 Completed workflows:
 
-✅ AI message classification  
-✅ Inquiry automation  
-✅ Reservation workflow  
-✅ Availability workflow  
-✅ Escalation workflow  
-✅ Supabase conversation logging  
-✅ Frontend AI decision dashboard  
-✅ Automated routing system  
+- ✅ AI message classification
+- ✅ Inquiry automation
+- ✅ Reservation workflow
+- ✅ Availability workflow
+- ✅ Escalation workflow
+- ✅ Supabase conversation logging
+- ✅ Frontend AI decision dashboard
+- ✅ Automated routing system
 
 ---
 
-# Future Improvements
+## Roadmap
 
-Planned improvements:
-
-- Live Airbnb API integration
-- Real-time calendar synchronization
-- Multi-property management dashboard
-- Automated review requests
-- Guest history memory
-- Advanced analytics
-- SaaS multi-tenant architecture
+- [ ] Live PMS/Airbnb channel integration for self-serve accounts
+- [ ] Real-time calendar synchronization
+- [ ] Multi-property management dashboard
+- [ ] Automated review requests
+- [ ] Guest history memory across stays
+- [ ] Advanced analytics (resolution rate, response time trends)
+- [ ] SaaS multi-tenant architecture with account connections
 
 ---
 
-# Author
+## Author
 
-## Maaz Ahmed
+**Maaz Ahmed**
 
-GitHub:
-
-https://github.com/Maaz5711
-
-LinkedIn:
-
-https://linkedin.com/in/maazahmed369
+- GitHub: [@Maaz5711](https://github.com/Maaz5711)
+- LinkedIn: [Maaz Ahmed](https://linkedin.com/in/maazahmed369)
