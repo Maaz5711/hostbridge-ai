@@ -1329,33 +1329,38 @@ export default function HomePage() {
 </section>
 
       {/* FOOTER */}
-      <footer className="py-8">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 text-sm text-gray-600 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <span>© 2026 HostBridge AI</span>
+      {/* FOOTER */}
+<footer className="py-8">
+  <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 text-sm text-gray-600 sm:flex-row sm:items-center sm:justify-between">
+    <div>
+      <span>© 2026 HostBridge AI</span>
 
-            <span className="ml-3 text-gray-700">
-              AI automation for modern property operations
-            </span>
-          </div>
+      <span className="ml-3 text-gray-700">
+        AI automation for modern property operations
+      </span>
+    </div>
 
-          <div className="flex gap-5">
-            <a
-              href="#"
-              className="transition hover:text-gray-300"
-            >
-              GitHub
-            </a>
+    <div className="flex gap-5">
+      <a
+        href="https://github.com/Maaz5711"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="transition hover:text-gray-300"
+      >
+        GitHub
+      </a>
 
-            <a
-              href="#"
-              className="transition hover:text-gray-300"
-            >
-              LinkedIn
-            </a>
-          </div>
-        </div>
-      </footer>
+      <a
+        href="https://linkedin.com/in/maazahmed369"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="transition hover:text-gray-300"
+      >
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</footer>
     </main>
   );
 }

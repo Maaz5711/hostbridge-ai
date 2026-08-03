@@ -51,7 +51,7 @@ export default async function WorkspacePage({
     <div className="min-h-screen bg-[#05070a] text-white">
 
       {/* Main Content */}
-    <main className="min-h-screen p-6 md:p-10">
+    <main className="min-h-screen p-4 sm:p-6 md:p-10">
 
         <div className="mx-auto max-w-7xl">
 

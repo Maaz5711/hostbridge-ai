@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import Sidebar from "@/components/workspace/Sidebar";
+
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -32,16 +32,10 @@ const { data: property } =
   return (
     <div className="min-h-screen bg-[#05070a] text-white">
 
-      {/* Sidebar */}
-      <Sidebar
-        propertyId={propertyId}
-        propertyName={
-          property?.property_name || "Demo Property"
-        }
-      />
+     
 
       {/* Main */}
-      <main className="ml-64 min-h-screen p-6 md:p-10">
+      <main className="min-h-screen p-4 sm:p-6 md:p-10">
         <div className="mx-auto max-w-5xl">
 
           {/* Header */}

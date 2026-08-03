@@ -18,7 +18,7 @@ export default function WorkspaceShell({
         propertyName={propertyName}
       />
 
-      <main className="ml-64 min-h-screen">
+      <main className="md:ml-64 min-h-screen">
         {children}
       </main>
     </div>
